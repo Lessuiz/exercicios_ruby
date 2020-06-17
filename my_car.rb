@@ -1,5 +1,5 @@
 class MyCar
-  attr_reader :color, :year
+  attr_reader :color, :year, :model
   attr_writer :color
 
   def initialize(year, color, model)
@@ -31,6 +31,14 @@ class MyCar
     self.color = color
     puts "Your new #{color} paint job is awesome!"
   end
+
+  def gas_mileage(liters, kilometers)
+    puts "#{kilometers/liters} kilometers per liter."
+  end
+
+  def to_s
+    "My car is a #{color}, #{year}, #{model}."
+  end
 end
 
 corolla = MyCar.new(2010, "Red", "Corolla")
@@ -40,3 +48,5 @@ corolla.current_speed
 corolla.brake(35)
 corolla.shut_down
 corolla.spray_paint("Blue")
+corolla.gas_mileage(20, 500)
+puts corolla
