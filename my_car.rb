@@ -1,6 +1,20 @@
-class MyCar
+class Vehicle
+  @@number_of_vehicles = 0
+
+  def initialize
+    @@number_of_vehicles += 1
+  end
+
+  def gas_mileage(liters, kilometers)
+    puts "#{kilometers/liters} kilometers per liter."
+  end
+end
+
+class MyCar < Vehicle
   attr_reader :color, :year, :model
   attr_writer :color
+
+  NUMBER_OF_DOORS = 4
 
   def initialize(year, color, model)
     @year = year
@@ -32,13 +46,13 @@ class MyCar
     puts "Your new #{color} paint job is awesome!"
   end
 
-  def gas_mileage(liters, kilometers)
-    puts "#{kilometers/liters} kilometers per liter."
-  end
-
   def to_s
     "My car is a #{color}, #{year}, #{model}."
   end
+end
+
+class MyTruck
+  NUMBER_OF_DOORS = 2
 end
 
 corolla = MyCar.new(2010, "Red", "Corolla")
