@@ -1,5 +1,3 @@
-require 'pry'
-
 class Game
   attr_accessor :last_player
 
@@ -37,9 +35,11 @@ class Board
      @spaces[space] = player
     elsif space > 8 || space < 0
       puts "The entered space is not valid"
+      show_board
       return
     else
       puts "The space was already selected"
+      show_board
       return
     end
     $game.last_player = player
